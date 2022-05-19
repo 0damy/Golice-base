@@ -37,6 +37,21 @@ body
 
 
 
+hr
+{
+     color: #8c7161;
+     opacity: 1;
+     width: 30%;
+     margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+
+
+
+
+
+
 /* here I manepulate the lightinh and language switches */
 .switch-label
 {
@@ -126,15 +141,17 @@ li p
      border-radius: 2px;
      background-color: #f2f2f2;
      box-shadow:0px 4px 10px -8px #353940;
-
 }
 
 
 
 
+
+
+/* first card styling */
 .frst-card .card-title
 {
-     font-size: 2.0em;
+     font-size: 2.0rem;
      width:45%;
      display: inline-block;
      padding-right: 0;
@@ -149,9 +166,11 @@ li p
 
 .priceNum span
 {
+     font-family: 'Inknut Antiqua', 'Markazi Text';
      width: 100%;
      color: #0d0d0d;
      padding-right: 0.7rem;
+
 }
 #goldK
 {
@@ -162,19 +181,82 @@ li p
 .frst-card p
 {
      font-family: 'Sulphur', 'Markazi Text';
-     font-size: x-large;
+     font-size: large;
      margin: auto;
      text-align: center;
      color: #5f6673;
 }
-hr
+
+.frst-card p span a img
 {
-     color: #8c7161;
-     opacity: 1;
-     width: 30%;
-     margin-top: 0.2em;
-    margin-bottom: 0.2em;
+     width: 1rem;
+     height: 1rem;
+     filter: invert(40%) sepia(11%) saturate(536%) hue-rotate(180deg) brightness(93%) contrast(87%);
 }
+
+
+
+
+
+
+/* second card styling */
+.scnd-card .card-title 
+{
+     font-size: 2rem;
+     display: inline-block;
+     padding-right: 0;
+}
+.scnd-card h2 select
+{
+     background-color: #f2f2f2;
+     font-family: 'Sulphur', 'Markazi Text';
+     width: min-content;
+     border-radius: 10%;
+     border: 0;
+     font-size: larger;
+     box-shadow:0px 0px 10px -4px #353940;
+
+}
+.scnd-card .priceNum
+{
+     vertical-align: middle;
+     margin-top: 50px;
+     font-size: 1.7em;
+     color: #353940;
+     font-family: 'Tomorrow', 'Markazi Text';
+}
+.scnd-card .priceNum span{
+     padding-right: 0.1rem;
+}
+.scnd-card .priceNum span select{
+     background-color: #f2f2f2;
+     box-shadow:0px 0px 10px -6px #353940;
+     border: 0;
+     height: 3rem;
+     text-align: center;
+}
+.scnd-card p
+{
+     font-family: 'Sulphur', 'Markazi Text';
+     font-size: large;
+     margin: auto;
+     text-align: center;
+     color: #5f6673;
+}
+.scnd-card p span a img
+{
+     width: 1rem;
+     height: 1rem;
+     filter: invert(40%) sepia(11%) saturate(536%) hue-rotate(180deg) brightness(93%) contrast(87%);
+}
+
+
+
+
+
+
+
+
 @media only screen and (min-width: 501px) {
      .frst-card .card-title
 {
