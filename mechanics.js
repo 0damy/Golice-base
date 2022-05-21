@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 const days = []
 
 
@@ -60,6 +62,13 @@ const textuals = {
 }
 
 // the api call for the current price of gold
+apiData;
+axios.get('https://api.metals.live/v1/spot')
+.then(res => {
+     console.log(res)
+     apiData = res;
+})
+console.log(apiData)
 
 
 // set values based on the page width for responsivity purposes
