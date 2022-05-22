@@ -59,30 +59,98 @@ const textuals = {
      }
 }
 
+
+// this selects the place where the price of gold is represented in the first card
 const mainPriceHolder = document.querySelector('.frst-card h3')
- 
+
+//  this is the html code responsible for the "sar" sign and its classes' set
 const mainPriceCurrency = " <span class='d-flex flex-row-reverse'>sar</span>"
  
-const changeablePriceHolder = document.querySelector('.scnd-card h3')
- 
-const currnciesList = '<span class="d-flex flex-row-reverse"><select name="" id=""><option value="">usd</option><option value="">sar</option></select></span>'
 
+
+// this selects the place where the price of gold is represented in the second card
+const changeablePriceHolder = document.querySelector('.scnd-card h3 span')
+
+
+
+// this selects the amount of gold that the user wants to select in the second card
+let goldAmount = document.querySelector('#gold-amount')
+
+
+
+// this selects the currency that user wants to see the gold's price on in the second card
+let goldCurrency = document.getElementById('gold-currency')
+
+
+
+// this selects both spaces where the last syncing time is apended
+const frstTimeSpace = document.querySelector('.frst-card p .syncing-time')
+const scndTimeSpace = document.querySelector('.scnd-card p .syncing-time')
+
+
+// this number represents how many grams are in one Troy Once, it's useful when you need to convert
 const troyOnceToGram = 31.035
 
+
+
+// this number represents how many Ryals(Saudi Arabia currency) are in one Dollar, it's also useful when converting
 const usdToSar = 3.75
+
+
+
+let syncingDate = new Date().toLocaleString();
+
+
+
+
+
+let shownAmount = troyOnceToGram;
+goldAmount.addEventListener('change', (event) => {
+
+     let shownAmount = event.target.value;
+
+     let currencyOption = document.getElementById('gold-currency').options[document.getElementById('gold-currency').selectedIndex].value;
+     if (currencyOption == 'sar'){
+          currentCurrecny = goldOriginalPriceSar
+     }else if (currencyOption == 'usd'){
+          currentCurrecny = goldOriginalPriceUsd
+     }
+     changeablePriceHolder.innerHTML = (currentCurrecny*shownAmount).toFixed(2);
+})
+
+let shownCurrency = 'usd'
+goldCurrency.addEventListener('change', (event) => {
+     
+     let shownCurrency = event.target.value
+
+     let amountOption = document.getElementById('gold-amount').options[document.getElementById('gold-amount').selectedIndex].value;
+     if (shownCurrency == 'sar'){
+          currentCurrecny = goldOriginalPriceSar
+     }else if (shownCurrency == 'usd'){
+          currentCurrecny = goldOriginalPriceUsd
+     }
+     changeablePriceHolder.innerHTML = (currentCurrecny*amountOption).toFixed(2);
+
+})
+
+
 
 // the api call for the current price of gold
 let goldOriginalPriceSar = undefined
-let goldOriginalPriceUsd
+let goldOriginalPriceUsd = undefined
 axios.get('https://api.metals.live/v1/spot')
 .then(res => {
-     goldOriginalPriceSar = parseInt(res.data[0].gold)/troyOnceToGram*usdToSar
-     goldOriginalPriceUsd = parseInt(res.data[0].gold)/troyOnceToGram
+     goldOriginalPriceSar = parseFloat(res.data[0].gold)/troyOnceToGram*usdToSar
+     goldOriginalPriceUsd = parseFloat(res.data[0].gold)/troyOnceToGram
 
      mainPriceHolder.innerHTML = goldOriginalPriceSar.toFixed(2);
      mainPriceHolder.innerHTML += mainPriceCurrency
-     changeablePriceHolder.innerHTML = goldOriginalPriceUsd*troyOnceToGram;
-     changeablePriceHolder.innerHTML += currnciesList;
+
+     changeablePriceHolder.innerHTML = (goldOriginalPriceUsd*troyOnceToGram).toFixed(2);
+
+     frstTimeSpace.innerHTML = `${syncingDate}`
+     scndTimeSpace.innerHTML = `${syncingDate}`
+
      console.log(goldOriginalPriceSar)
 })
 
@@ -93,16 +161,16 @@ Chart.defaults.font.size = 12
 
 let pageWidth = document.body.offsetWidth;
 if (pageWidth < 600){
-     Chart.defaults.font.size = 15
+     Chart.defaults.font.size = 14
 }
 else if ( pageWidth < 1200){
-     Chart.defaults.font.size = 18
+     Chart.defaults.font.size = 16
 }
 else if ( pageWidth < 1500){
-     Chart.defaults.font.size = 21
+     Chart.defaults.font.size = 19
 }
 else {
-     Chart.defaults.font.size = 24
+     Chart.defaults.font.size = 22
 }
 
 

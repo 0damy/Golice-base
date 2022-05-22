@@ -223,16 +223,18 @@ li p
      margin-top: 50px;
      font-size: 1.7em;
      color: #353940;
-     font-family: 'Tomorrow', 'Markazi Text';
+     font-family: 'Inknut Antiqua', 'Markazi Text';
 }
 .scnd-card .priceNum span{
+     font-family: 'Tomorrow', 'Markazi Text';
+     color: #353940;
+     margin-top: 10px;
      padding-right: 0.1rem;
 }
 .scnd-card .priceNum span select{
      background-color: #f2f2f2;
      box-shadow:0px 0px 10px -6px #353940;
      border: 0;
-     height: 3rem;
      text-align: center;
 }
 .scnd-card p

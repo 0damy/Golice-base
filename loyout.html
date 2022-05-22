@@ -74,7 +74,7 @@
                          <h3 class="col align-self-center col-5 text-center p-0 priceNum" >
                               <!-- filled automatically -->
                          </h3>
-                         <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span> 2022/4/19 11:12 AM</p>
+                         <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span>   <span class="syncing-time"></span></p>
 
                    </div>
                  </div>
@@ -82,20 +82,34 @@
                <div class="col-md-7">
                  <div class="card cardUti">
                    <div class="card-body row scnd-card">
-                    <h2 class="card-title col pt-4"><span id="goldK">24K</span>-gold <select name="amount of gold" class="text-center" id="">
-                         <option value="">1 g</option>
-                         <option value="">5 g</option>
-                         <option value="">10 g</option>
-                         <option value="">20 g</option>
-                         <option value="" selected>1 oz</option>
-                         <option value="">50 g</option>
-                         <option value="">100 g</option>
-                         <option value="">200 g</option>
-                         <option value="">500 g</option>
-                         <option value="">1 kg</option>
-                    </select> price</h2>
-                    <h3 class="col align-self-center col-5 text-center p-0 priceNum" >6785.00</h3>
-                    <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span> 2022/4/19 11:12 AM</p>
+                    <h2 class="card-title col pt-4">
+                         <span id="goldK">24K</span>-gold 
+                         <select name="amount of gold" class="text-center" id="gold-amount">
+                              <option value="1">1 g</option>
+                              <option value="5">5 g</option>
+                              <option value="10">10 g</option>
+                              <option value="20">20 g</option>
+                              <option value="31.035" selected>1 oz</option>
+                              <option value="50">50 g</option>
+                              <option value="100">100 g</option>
+                              <option value="200">200 g</option>
+                              <option value="500">500 g</option>
+                              <option value="1000">1 kg</option>
+                         </select> price
+                    </h2>
+                    <h3 class="col align-self-center col-5 text-center p-0 priceNum" >
+                         <span class="pricNum">
+                              
+                         </span>
+                         <span class="d-flex flex-row-reverse">
+                              <select name="" id="gold-currency">
+                                   <option value="usd">usd</option>
+                                   <option value="sar">sar</option>
+                              </select>
+                         </span>
+                         <!-- filled automitacllay -->
+                    </h3>
+                    <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span>   <span class="syncing-time"></span></p>
                    </div>
                  </div>
                </div>
