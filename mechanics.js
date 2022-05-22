@@ -1,5 +1,3 @@
-const { default: axios } = require("axios");
-
 const days = []
 
 
@@ -61,14 +59,33 @@ const textuals = {
      }
 }
 
+const mainPriceHolder = document.querySelector('.frst-card h3')
+ 
+const mainPriceCurrency = " <span class='d-flex flex-row-reverse'>sar</span>"
+ 
+const changeablePriceHolder = document.querySelector('.scnd-card h3')
+ 
+const currnciesList = '<span class="d-flex flex-row-reverse"><select name="" id=""><option value="">usd</option><option value="">sar</option></select></span>'
+
+const troyOnceToGram = 31.035
+
+const usdToSar = 3.75
+
 // the api call for the current price of gold
-apiData;
+let goldOriginalPriceSar = undefined
+let goldOriginalPriceUsd
 axios.get('https://api.metals.live/v1/spot')
 .then(res => {
-     console.log(res)
-     apiData = res;
+     goldOriginalPriceSar = parseInt(res.data[0].gold)/troyOnceToGram*usdToSar
+     goldOriginalPriceUsd = parseInt(res.data[0].gold)/troyOnceToGram
+
+     mainPriceHolder.innerHTML = goldOriginalPriceSar.toFixed(2);
+     mainPriceHolder.innerHTML += mainPriceCurrency
+     changeablePriceHolder.innerHTML = goldOriginalPriceUsd*troyOnceToGram;
+     changeablePriceHolder.innerHTML += currnciesList;
+     console.log(goldOriginalPriceSar)
 })
-console.log(apiData)
+
 
 
 // set values based on the page width for responsivity purposes
