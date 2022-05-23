@@ -256,6 +256,18 @@ li p
 
 
 
+.frth-card .card-title {
+     font-size: 1.4rem;
+     color: #0AA64D;
+}
+.frth-card .blockquote{
+     font-size: 1rem;
+}
+.blockquote-footer{
+     padding-top: 2rem;
+}
+
+
 
 
 @media only screen and (min-width: 501px) {

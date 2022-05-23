@@ -88,6 +88,10 @@ const frstTimeSpace = document.querySelector('.frst-card p .syncing-time')
 const scndTimeSpace = document.querySelector('.scnd-card p .syncing-time')
 
 
+const marketState = document.querySelector('.frth-card .card-title')
+const marketDiscription = document.querySelector('.blockquote span')
+
+
 // this number represents how many grams are in one Troy Once, it's useful when you need to convert
 const troyOnceToGram = 31.035
 
@@ -96,6 +100,9 @@ const troyOnceToGram = 31.035
 // this number represents how many Ryals(Saudi Arabia currency) are in one Dollar, it's also useful when converting
 const usdToSar = 3.75
 
+
+const onColor = '#0AA64D'
+const offColor = '#F23030'
 
 
 let syncingDate = new Date().toLocaleString();
@@ -156,9 +163,36 @@ axios.get('https://api.metals.live/v1/spot')
 
 
 
+
+// here i Implement the functionality resonsible for decidinf if the markets are opened or closed
+let localTimeNow = new Date();
+
+const hourMS = 60000
+const dayMS = 3600000
+
+let estOffset = -5
+if (localTimeNow.getMonth() > 3 && localTimeNow.getMonth() < 11){
+     estOffset = -4
+}
+
+let utc = localTimeNow.getTime() + (localTimeNow.getTimezoneOffset() * hourMS);
+
+let est = new Date(utc + (dayMS*estOffset))
+
+if ((est.getDay() == 5 && est.getHours() > 17) || est.getDay == 6 || (est.getDay() == 7 && est.getHours() < 6)) {
+     marketState.innerHTML = 'Markets are closed now'
+     marketState.style.color = offColor
+     marketDiscription.innerHTML = 'When markets are closed the price of gold remianes constant at the same price since last time markets were opened'
+}
+
+
+
+
+
 // set values based on the page width for responsivity purposes
 Chart.defaults.font.size = 12
 
+// tension/ circle size/ 
 let pageWidth = document.body.offsetWidth;
 if (pageWidth < 600){
      Chart.defaults.font.size = 14
@@ -216,12 +250,14 @@ const chart1 = new Chart(monthChart, {
           maintainAspectRatio: false,
           scales: {
                y: {
-                    suggestedMin: 220,
-                    suggestedMax: 230
+                    suggestedMin: 218,
+                    suggestedMax: 234,
                },
                x: {
                     beginAtZero: true,
-                    suggestedMax: 2
+                    grid: {
+                         display: false
+                    }
                }
           },
           layout: {
