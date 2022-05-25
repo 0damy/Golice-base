@@ -213,7 +213,7 @@ li p
      width: min-content;
      border-radius: 10%;
      border: 0;
-     font-size: larger;
+     font-size: 2.5rem;
      box-shadow:0px 0px 10px -4px #353940;
 
 }
@@ -270,6 +270,13 @@ li p
 
 
 
+
+
+
+
+
+
+
 #page-footer{
      background-color: #353940;
      color: #5f6673;
@@ -293,19 +300,254 @@ li p
 {
      font-size: 2.4em;
      width:65%;
-     display: inline-block;
      padding-right: 0;
 }
 .frst-card h3
 {
      vertical-align: middle;
      font-size: 2.5em;
-     color: #5f6673;
 }
 #goldK
 {
-     font-family: 'Sulphur', 'Markazi Text';
      font-size: 1.5em;
      
 }
+.scnd-card .card-title 
+{
+     font-size: 2.3rem;
+     padding-right: 20px;
+}
+.scnd-card h2 select
+{
+     font-size: 2.9rem;
+}
+.scnd-card .priceNum
+{
+     font-size: 2.3rem;
+}
+.scnd-card .priceNum span select{
+     margin-right: 12px;
+}
+.frth-card .card-title {
+     font-size: 1.8rem;
+}
+.frth-card .blockquote{
+     font-size: 1.2rem;
+     margin-top: 38px;
+     padding-left: 20px;
+     padding-right: 20px;
+}
+.blockquote-footer{
+     padding-top: 2rem;
+}
+}
+
+
+
+
+
+@media only screen and (min-width: 601px) {
+     .frst-card .card-title
+{
+     padding-left: 50px;
+}
+.frst-card h3
+{
+     padding-right: 50px;
+}
+.frst-card h3 span{
+     padding-right: 37px;
+}
+.scnd-card .card-title 
+{
+     padding-left: 55px;
+     padding-right: 20px;
+}
+.scnd-card h2 select
+{
+     font-size: 2.9rem;
+}
+.scnd-card .priceNum
+{
+     font-size: 2.3rem;
+}
+.scnd-card .priceNum span select{
+     margin-right: 32px;
+}
+}
+
+
+
+
+
+@media only screen and (min-width: 766px){
+     .frst-card .card-title
+{
+     font-size: 2.0rem;
+     padding-right: 0;
+     padding-left: 0;
+}
+.frst-card h3
+{
+     font-size: 1.7em;
+}
+
+.priceNum span
+{
+     padding-right: 0.7rem;
+
+}
+#goldK
+{
+     font-size: 1.3em;
+     
+}
+.scnd-card .card-title 
+{
+     font-size: 2rem;
+     padding-right: 0;
+}
+.scnd-card h2 select
+{
+     font-size: 2.5rem;
+}
+.scnd-card .priceNum
+{
+     font-size: 1.7em;
+}
+.scnd-card h2 select
+{
+     font-size: 1.9rem;
+}
+.frth-card .card-title {
+     font-size: 1.4rem;
+}
+.frth-card .blockquote{
+     font-size: 0.8rem;
+     margin-top: 10px;
+     padding-left: 0;
+     padding-right: 0;
+}
+.blockquote-footer{
+     padding-top: 2rem;
+}
+}
+
+
+
+@media only screen and (min-width: 989px){
+     .frst-card .card-title
+{
+     font-size: 2.4rem;
+     padding-right: 0;
+     padding-left: 0;
+}
+.frst-card h3
+{
+     font-size: 2.3em;
+}
+
+.frst-card h3 span
+{
+     padding-right: 0.5rem;
+
+}
+#goldK
+{
+     font-size: 1.3em;
+     
+}
+.scnd-card .card-title 
+{
+     font-size: 2.35rem;
+     padding-right: 0;
+}
+.scnd-card .priceNum
+{
+     font-size: 2.7em;
+}
+.scnd-card h2 select
+{
+     font-size: 2.5rem;
+}
+.frth-card .card-title {
+     font-size: 1.6rem;
+}
+.frth-card .blockquote{
+     font-size: 0.8rem;
+     margin-top: 30px;
+     padding-left: 15px;
+     padding-right: 15px;
+}
+.blockquote-footer{
+     padding-top: 2rem;
+}
+}
+@media only screen and (min-width: 1350px){
+     .frst-card .card-title
+{
+     font-size: 3.1rem;
+     padding-right: 0rem;
+     padding-left: 3rem;
+}
+.frst-card h3
+{
+     font-size: 3.3em;
+}
+
+.frst-card h3 span
+{
+     padding-right: 0.5rem;
+
+}
+#goldK
+{
+     font-size: 1.3em;
+     
+}
+.scnd-card .card-title 
+{
+     font-size: 3.35rem;
+     padding-right: 0;
+}
+.scnd-card .priceNum
+{
+     font-size: 3rem;
+}
+.scnd-card h2 select
+{
+     font-size: 3.2rem;
+}
+.scnd-card .priceNum span select {
+     margin-right: 52px;
+} 
+.frth-card .card-title {
+     font-size: 1.8rem;
+}
+.frth-card .blockquote{
+     font-size: 1rem;
+     margin-top: 40px;
+     padding-left: 15px;
+     padding-right: 15px;
+}
+.blockquote-footer{
+     padding-top: 2rem;
+}
+}
+
+
+
+
+
+@media only screen and (min-width: 1650px){
+     .frst-card h3 span {
+          padding-right: 5rem;
+      }
+     .scnd-card .priceNum span select {
+          margin-right: 8rem;
+      }
+     .frth-card .card-title {
+          font-size: 2.2rem;
+      }
+      
 }

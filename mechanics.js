@@ -223,23 +223,8 @@ if ((est.getDay() == 5 && est.getHours() > 17) || est.getDay == 6 || (est.getDay
 
 
 
-// set values based on the page width for responsivity purposes
-Chart.defaults.font.size = 12
-
-// tension/ circle size/ tit
-let pageWidth = document.body.offsetWidth;
-if (pageWidth < 600){
-     Chart.defaults.font.size = 14
-}
-else if ( pageWidth < 1200){
-     Chart.defaults.font.size = 16
-}
-else if ( pageWidth < 1500){
-     Chart.defaults.font.size = 19
-}
-else {
-     Chart.defaults.font.size = 22
-}
+// tension/ circle size/ title/ x axis subtitle/ 
+let pageWidth = document.body.scrollWidth;
 
 
 
@@ -255,7 +240,7 @@ const dayChart = document.getElementById('hoursChart').getContext('2d');
 const monthChart = document.getElementById('monthChart').getContext('2d');
 
 
-const chart1 = new Chart(dayChart, {
+let chart1 = new Chart(dayChart, {
      // specifies the type of the chart(whether a bar, pie, table or a line chart)
      type: 'line',
      
@@ -268,16 +253,16 @@ const chart1 = new Chart(dayChart, {
                borderColor: '#8C7161',
                color: '#0d0d0d',
                data: [222.64, 222.3, 219.2, 219.19, 220.47, 227.24, 227, 227, 218, NaN, NaN, 234, 222],
-
+               
                pointRadius: 3.4,
-
+               
                segment: {
                     borderColor: ctx => skipped(ctx, '#8C716188') || down(ctx, '#8C7161'),
                     borderDash: ctx => skipped(ctx, [6, 6]),
-                  },
+               },
                spanGaps: true,
-
-               tension: 0,
+               cubicInterpolationMode: 'monotone',
+               
           }]
      },
      // here we place the some of the styling propereties
@@ -287,16 +272,26 @@ const chart1 = new Chart(dayChart, {
                y: {
                     suggestedMin: 218,
                     suggestedMax: 234,
+                    ticks: {
+                         font: {
+                              size: 12
+                         }
+                    }
                },
                x: {
                     beginAtZero: true,
                     grid: {
                          display: false
+                    },
+                    ticks: {
+                         font: {
+                              size: 10
+                         }
                     }
                }
           },
           layout: {
-
+               
           },
           responsive: true,
           plugins: {
@@ -305,7 +300,7 @@ const chart1 = new Chart(dayChart, {
           }
      }
 })
-const chart2 = new Chart(monthChart, {
+let chart2 = new Chart(monthChart, {
      // specifies the type of the chart(whether a bar, pie, table or a line chart)
      type: 'line',
      
@@ -318,15 +313,15 @@ const chart2 = new Chart(monthChart, {
                borderColor: '#8C7161',
                color: '#0d0d0d',
                data: [222.64, 222.3, 219.2, 219.19, 220.47, 227.24, 227, 227, 218, NaN, 234, NaN, 222,227, 218, NaN, NaN, 234, 222,  222.3, 219.2, 219.19,227, 218, NaN, NaN, 234, 222, 220.47, 227.24, 227, 227, 218, NaN],
-
+               
                pointRadius: 3.4,
-
+               
                segment: {
                     borderColor: ctx => skipped(ctx, '#8C716188') || down(ctx, '#8C7161'),
                     borderDash: ctx => skipped(ctx, [6, 6]),
-                  },
+               },
                spanGaps: true,
-
+               
                tension: 0,
           }]
      },
@@ -337,21 +332,69 @@ const chart2 = new Chart(monthChart, {
                y: {
                     suggestedMin: 218,
                     suggestedMax: 234,
+                    ticks: {
+                         font: {
+                              size: 12
+                         }
+                    }
                },
                x: {
                     beginAtZero: true,
                     grid: {
                          display: false
+                    },
+                    ticks: {
+                         font: {
+                              size: 10
+                         }
                     }
                }
           },
           layout: {
-
+               
           },
           responsive: true,
           plugins: {
                suggestedMin: 10,
                suggestedMax: 10
           }
+          
      }
 })
+// set values based on the page width for responsivity purposes
+Chart.defaults.font.size = 12
+
+console.log(pageWidth)
+if (pageWidth < 600){
+     Chart.defaults.font.size = 14
+     chart1.data.datasets[0].pointRadius = 4
+     chart2.data.datasets[0].pointRadius = 4
+     chart1.options.scales.x.ticks.font.size = 10
+     chart1.options.scales.y.ticks.font.size = 12
+     chart2.options.scales.y.ticks.font.size = 12
+}
+else if ( pageWidth < 1100){
+     Chart.defaults.font.size = 16
+     chart1.data.datasets[0].pointRadius = 6
+     chart2.data.datasets[0].pointRadius = 6
+     chart1.options.scales.x.ticks.font.size = 12
+     chart1.options.scales.y.ticks.font.size = 14
+     chart2.options.scales.y.ticks.font.size = 14
+}
+else if ( pageWidth < 1400){
+     Chart.defaults.font.size = 18
+     chart1.data.datasets[0].pointRadius = 8
+     chart2.data.datasets[0].pointRadius = 8
+     chart1.options.scales.x.ticks.font.size = 13
+     chart1.options.scales.y.ticks.font.size = 15
+     chart2.options.scales.y.ticks.font.size = 15
+}
+else {
+     Chart.defaults.font.size = 21
+     chart1.data.datasets[0].pointRadius = 10
+     chart2.data.datasets[0].pointRadius = 10
+     chart1.options.scales.x.ticks.font.size = 14
+     chart1.options.scales.y.ticks.font.size = 16
+     chart2.options.scales.y.ticks.font.size = 16
+     chart2.options.scales.x.grid.display = true
+}
