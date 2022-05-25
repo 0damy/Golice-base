@@ -482,6 +482,9 @@ li p
 .blockquote-footer{
      padding-top: 2rem;
 }
+.rights{
+     font-size: 1.22rem;
+}
 }
 @media only screen and (min-width: 1350px){
      .frst-card .card-title
