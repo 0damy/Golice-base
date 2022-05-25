@@ -124,7 +124,7 @@ const marketDiscription = document.querySelector('.blockquote span')
 
 
 // this number represents how many grams are in one Troy Once, it's useful when you need to convert
-const troyOnceToGram = 31.035
+const troyOnceToGram = 31.10348
 
 
 
