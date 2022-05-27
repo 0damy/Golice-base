@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>Golice</title>
+     
+     <!-- bootstrap properity -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     
+     <!-- google font's properity -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500&family=Markazi+Text:wght@400;500;600;700&family=Raleway:wght@500;600&family=Sulphur+Point:wght@700&family=Tomorrow:wght@500&display=swap" rel="stylesheet">
+     
+     <!-- the project's own style sheet -->
+     <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+     <header>
+          <nav class="navbar navbar-expand-lg mb-4">
+               <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand pe-md-5" href="#"><h1 id="logo">GOLICE</h1></a>
+                    <div class="collapse navbar-collapse navbarSupportedContent">
+                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                              <li class="nav-item">
+                                   <a class="nav-link active fs-5 tab-link" href="#">
+                                        <!-- auto fill -->
+                                   </a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link active fs-5 tab-link" aria-current="page" href="#">
+                                        <!-- auto fill -->
+                                   </a>
+                              </li>
+                         </ul>
+                    </div>
+                    <div class="collapse navbar-collapse navbarSupportedContent">
+                         <ul class="navbar-nav ms-auto switches">
+                              <li>
+                                   <hr>
+                              </li>
+                              <li>
+                                   <p class="switch-label">
+                                        <!-- auto fill -->
+                                   </p>
+                                   <label class="switch">
+                                        <input type="checkbox" checked id="langbox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                   <p class="switch-label">
+                                        <!-- auto fill -->
+                                   </p>
+                              </li>
+                              <li id="light-control">
+                                   <p class="switch-label">
+                                        <!-- auto fill -->
+                                   </p>
+                                   <label class="switch">
+                                        <input type="checkbox" checked id="lightBox">
+                                        <span class="slider round"></span>
+                                      </label>
+                                   <p class="switch-label">
+                                        <!-- auto fill -->
+                                   </p>
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+             </nav>
+     </header>
+     <main class="mx-5 ">
+          <div class="row d-flex justify-content-between" id="frst-row">
+               <div class="col-md-5">
+                 <div class="card cardUti">
+                   <div class="card-body row frst-card">
+                         <h2 class="card-title col pt-4">
+                              <span id="goldK">
+                                   <!-- auto fill -->
+                              </span>
+                              <span>
+                                   <!-- auto fill -->
+                              </span>
+                         </h2>
+                         <h3 class="col align-self-center col-5 text-center p-0 priceNum" >
+                              <!-- filled automatically -->
+                         </h3>
+                         <p class="card-text">
+                              <span>
+                                   <a href=""><img src="icons/sync.png" alt="data were updated">
+                                        <!-- auto fill -->
+                                   </a>
+                              </span>
+                              <span class="syncing-time">
+                                   <!-- auto fill -->
+                              </span>
+                         </p>
+
+                   </div>
+                 </div>
+               </div>
+               <div class="col-md-7">
+                 <div class="card cardUti">
+                   <div class="card-body row scnd-card">
+                    <h2 class="card-title col pt-4">
+                         <span id="goldK">
+                              <!-- auto fill -->
+                         </span>
+                         <span>
+                              <!-- auto fill -->
+                         </span> 
+                         <select name="amount of gold" class="text-center" id="gold-amount">
+                              <option value="1">1 g</option>
+                              <option value="5">5 g</option>
+                              <option value="10">10 g</option>
+                              <option value="20">20 g</option>
+                              <option value="31.035" selected>1 oz</option>
+                              <option value="50">50 g</option>
+                              <option value="100">100 g</option>
+                              <option value="200">200 g</option>
+                              <option value="500">500 g</option>
+                              <option value="1000">1 kg</option>
+                         </select>
+                         <span>
+                              <!-- auto fill -->
+                         </span>
+                    </h2>
+                    <h3 class="col align-self-center col-5 text-center p-0 priceNum" >
+                         <span class="pricNum">
+                              
+                         </span>
+                         <span class="d-flex flex-row-reverse">
+                              <select name="" id="gold-currency">
+                                   <option value="usd">usd</option>
+                                   <option value="sar">sar</option>
+                              </select>
+                         </span>
+                         <!-- filled automitacllay -->
+                    </h3>
+                    <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span>   <span class="syncing-time"></span></p>
+                   </div>
+                 </div>
+               </div>
+          </div>
+          <div class="row d-flex justify-content-between" id="second-row">
+               <div class="col-md-8">
+                    <div class="card cardUti">
+                         <div class="card-body">
+                              <canvas id="hoursChart"></canvas>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-md-4">
+                    <div class="card cardUti">
+                         <div class="card-body frth-card">
+                              <h2 class="card-title text-center">
+                                   <!-- auto fill -->
+                              </h2>
+                              <blockquote class="blockquote">
+                                   <span>
+                                        <!-- auto fill -->
+                                   </span>
+                                   <footer class="blockquote-footer">
+                                        <!-- auto fill -->
+                                        
+                                   </footer>
+                              </blockquote>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <div class="row d-flex justify-content-between" id="second-row">
+               <div class="col-md-12 mb-5">
+                    <div class="card cardUti mb-5">                         
+                         <div class="card-body">
+                              <canvas id="monthChart"></canvas>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     
+     </main>
+     <footer id="page-footer">
+          <div class="container pt-3 pb-3">
+               <div class="row">
+                    <div class="col-6 ">
+                         <p class="mb-5 mt-5">gold prices and data from <a href="https://api.metals.live">here</a></p>
+                         <p class="mb-5 mt-5">something</p>
+                         <p class="mb-5 mt-5">something</p>
+                    </div>
+                    <div class="col-6 d-flex">
+                         <p class="align-self-center rights">
+                              <!-- auto fill -->
+                         </p>
+                    </div>
+               </div>
+          </div>
+     </footer>
+     
+     
+     
+     
+     
+     
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+     
+
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
+
+     <script src="mechanics.js"></script>
+     
+
+</body>
+</html>
