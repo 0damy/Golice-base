@@ -361,6 +361,12 @@ let navbar = document.querySelector('nav')
 let cards = document.querySelectorAll('.cardUti')
 let links = document.querySelectorAll('.tab-link')
 let frstPriceHolder = document.querySelector('.frst-card h3')
+
+
+// only a small change test
+let balls = 2
+
+
 let scndPriceHolder = document.querySelector('.scnd-card h3 span:nth-of-type(1)')
 let selections = document.querySelectorAll('select')
 let navIcon = document.querySelector('.navbar-toggler-icon')
