@@ -361,6 +361,11 @@ let chart2 = new Chart(monthChart, {
           
      }
 })
+
+
+// only a small change test
+let balls = 2
+
 // set values based on the page width for responsivity purposes
 Chart.defaults.font.size = 12
 
