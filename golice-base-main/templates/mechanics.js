@@ -529,7 +529,7 @@ let est = new Date(utc + (dayMS*estOffset))
 
 // check if it the time when the gold markets are closed then it changes the fourth card contant based on this decision
 if (langBox.checked == true){
-     if ((est.getDay() == 5 && est.getHours() > 17) || est.getDay == 6 || (est.getDay() == 7 && est.getHours() < 6)) {
+     if ((est.getDay() == 5 && est.getHours() > 17) || est.getDay == 6 || (est.getDay() == 0 && est.getHours() < 6)) {
           frthCardTitlePlace.innerHTML = textuals.en.frthCard.closeState.closeTitle
           marketState.style.color = offColor
           frthCardDiscriptPlace.innerHTML = textuals.en.frthCard.closeState.closeDiscription
