@@ -442,6 +442,17 @@ lightBox.addEventListener('change', () => {
 })
 
 
+// fetch data from database via the index page
+// const monthDataAdress = document.querySelectorAll('.monthData')
+// let monthDataPrice = []
+// let monthDataLabel = []
+// for(let i = 0; i < monthDataAdress.length; i++)
+// {
+
+// }
+
+
+
 
 
 

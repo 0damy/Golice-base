@@ -27,7 +27,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand pe-md-5" href="#"><h1 id="logo">GOLICE</h1></a>
+                    <a class="navbar-brand pe-md-5" href=""><h1 id="logo">GOLICE</h1></a>
                     <div class="collapse navbar-collapse navbarSupportedContent">
                          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                               <li class="nav-item">
@@ -203,7 +203,7 @@
           </thead>
           <tbody>
               {% for row in month %}
-              <tr>
+              <tr class="monthData">
                   <th scope="row">{{ row["id"] }}</th>
                   <td>{{ row["price"] }}</td>
                   <td>{{ row["year"] }}</td>
@@ -212,7 +212,32 @@
                   <td>{{ row["hour"] }}</td>
               </tr>
               {% endfor %}
-
+          </tbody>
+     </table>
+     <table class="table">
+               <thead>
+                   <tr>
+                       <th scope="col">id</th>
+                       <th scope="col">price</th>
+                       <th scope="col">year</th>
+                       <th scope="col">month</th>
+                       <th scope="col">day</th>
+                       <th scope="col">hour</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {% for row in day %}
+                   <tr class="dayData">
+                       <th scope="row">{{ row["id"] }}</th>
+                       <td>{{ row["price"] }}</td>
+                       <td>{{ row["year"] }}</td>
+                       <td>{{ row["month"] }}</td>
+                       <td>{{ row["day"] }}</td>
+                       <td>{{ row["hour"] }}</td>
+                   </tr>
+                   {% endfor %}
+               </tbody>
+     </table>
 
 
 

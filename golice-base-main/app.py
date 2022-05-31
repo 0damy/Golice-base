@@ -55,7 +55,7 @@ def index():
      # import from db and forward to html pages
      month = db.execute('SELECT * FROM historical GROUP BY day ORDER BY id ASC LIMIT 30')
      currento = datetime.now(pytz.timezone('Asia/Riyadh'))
-     day =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id DESC', currento.day)
+     day =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currento.day)
      return render_template('index.html', month=month, day=day)
 
 # @app.route('/about')
