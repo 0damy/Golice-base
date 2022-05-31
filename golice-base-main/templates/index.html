@@ -16,7 +16,7 @@
      <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;500&family=Markazi+Text:wght@400;500;600;700&family=Raleway:wght@500;600&family=Sulphur+Point:wght@700&family=Tomorrow:wght@500&display=swap" rel="stylesheet">
      
      <!-- the project's own style sheet -->
-     <link rel="stylesheet" href="style.css">
+     <link href="/static/style.css" rel="stylesheet">
 
 
 </head>
@@ -94,7 +94,7 @@
                          </h3>
                          <p class="card-text">
                               <span>
-                                   <a href=""><img src="icons/sync.png" alt="data were updated">
+                                   <a href=""><img src="static/icons/sync.png" alt="data were updated">
                                         <!-- auto fill -->
                                    </a>
                               </span>
@@ -144,7 +144,7 @@
                          </span>
                          <!-- filled automitacllay -->
                     </h3>
-                    <p class="card-text"><span><a href=""><img src="icons/sync.png" alt="data were updated"></a></span>   <span class="syncing-time"></span></p>
+                    <p class="card-text"><span><a href=""><img src="static/icons/sync.png" alt="data were updated"></a></span>   <span class="syncing-time"></span></p>
                    </div>
                  </div>
                </div>
@@ -187,6 +187,37 @@
           </div>
      
      </main>
+
+
+     <!-- the secret place -->
+     <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">price</th>
+                  <th scope="col">year</th>
+                  <th scope="col">month</th>
+                  <th scope="col">day</th>
+                  <th scope="col">hour</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for row in month %}
+              <tr>
+                  <th scope="row">{{ row["id"] }}</th>
+                  <td>{{ row["price"] }}</td>
+                  <td>{{ row["year"] }}</td>
+                  <td>{{ row["month"] }}</td>
+                  <td>{{ row["day"] }}</td>
+                  <td>{{ row["hour"] }}</td>
+              </tr>
+              {% endfor %}
+
+
+
+
+
+
      <footer id="page-footer">
           <div class="container pt-3 pb-3">
                <div class="row">
@@ -221,7 +252,7 @@
 
      <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1"></script>
 
-     <script src="mechanics.js"></script>
+     <script src="/static/mechanics.js"></script>
      
 
 </body>
