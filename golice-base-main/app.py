@@ -59,8 +59,10 @@ def index():
      day =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currento.day)
      return render_template('index.html', month=month, day=day)
 
-# @app.route('/about')
-#      def about():
+@app.route("/about")
+def about():
+     return render_template("about.html")
+
 
 # @app.route('/info')
 #      def info():

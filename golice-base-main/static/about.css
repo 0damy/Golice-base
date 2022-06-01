@@ -1,0 +1,48 @@
+body{
+     background-color: #5f667328;
+     color: #0d0d0d;
+     font-family: 'Inknut Antiqua', 'Markazi Text';
+}
+.row{
+     margin-top: 16vh;
+     padding-bottom: 8rem;
+     border-bottom: 1px solid #5f6673;
+}
+#home-sign{
+     color:#8c7161;
+     font-size: 3rem;
+}
+.intro {
+     position: relative;
+     top: 50%;
+     transform: translateY(90%);
+     text-align: right;
+     height: fit-content;
+}
+.intro h2{
+     font-size: 3.8vw;
+     color:#8c7161;
+}
+.intro p{
+     font-size: 1.8vw;
+}
+#gold-pic{
+     width: 32vw;
+}
+
+#basic-div{
+     padding-left: 15vw;
+}
+#basic-div p{
+     color: #5f6673;
+     font-size: 0.8rem;
+     padding-top: 2vh;
+}
+#basic-p{
+     padding-top: 3vh;
+     font-size: 2vw;
+}
+
+.basic-bundle{
+     width: 5vw;
+}

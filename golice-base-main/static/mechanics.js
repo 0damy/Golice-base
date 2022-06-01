@@ -150,7 +150,7 @@ const textuals = {
                title: "سعر الذهب خلال 30 يوم"
           },
           footer: {
-               rights: `© ${new Date().getFullYear()} جميع الحقوق محفوظة`
+               rights: `© ${new Date().getFullYear()} جميع الحقوق محفوظة لمحمد خالد`
           }
      }
 }
