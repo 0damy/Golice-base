@@ -31,6 +31,13 @@ const days = [
      '30 May',
 ]
 
+const months = [
+     "Jan", "Feb", 
+     "Mar", "Apr", "May", 
+     "Jun", "Jul", "Aug",
+     "Sep", "Oct", 
+     "Nov", "Dec"
+ ];
 
 const hours = [
      '1 AM',
@@ -442,33 +449,15 @@ lightBox.addEventListener('change', () => {
 })
 
 
-// fetch data from database via the index page
-// const monthDataAdress = document.querySelectorAll('.monthData')
-// let monthDataPrice = []
-// let monthDataLabel = []
-// for(let i = 0; i < monthDataAdress.length; i++)
-// {
-
-// }
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 let shownAmount = troyOnceToGram;
 goldAmount.addEventListener('change', (event) => {
-
+     
      let shownAmount = event.target.value;
-
+     
      let currencyOption = document.getElementById('gold-currency').options[document.getElementById('gold-currency').selectedIndex].value;
      if (currencyOption == 'sar'){
           currentCurrecny = goldOriginalPriceSar
@@ -482,7 +471,7 @@ let shownCurrency = 'usd'
 goldCurrency.addEventListener('change', (event) => {
      
      let shownCurrency = event.target.value
-
+     
      let amountOption = document.getElementById('gold-amount').options[document.getElementById('gold-amount').selectedIndex].value;
      if (shownCurrency == 'sar'){
           currentCurrecny = goldOriginalPriceSar
@@ -490,7 +479,7 @@ goldCurrency.addEventListener('change', (event) => {
           currentCurrecny = goldOriginalPriceUsd
      }
      changeablePriceHolder.innerHTML = (currentCurrecny*amountOption).toFixed(2);
-
+     
 })
 
 
@@ -502,19 +491,19 @@ axios.get('https://api.metals.live/v1/spot')
 .then(res => {
      goldOriginalPriceSar = parseFloat(res.data[0].gold)/troyOnceToGram*usdToSar
      goldOriginalPriceUsd = parseFloat(res.data[0].gold)/troyOnceToGram
-
+     
      mainPriceHolder.innerHTML = goldOriginalPriceSar.toFixed(2);
      if (langBox.checked == true){
           mainPriceHolder.innerHTML += textuals.en.frstCard.currency
      }else{
           mainPriceHolder.innerHTML += textuals.ar.frstCard.currency
      }
-
+     
      changeablePriceHolder.innerHTML = (goldOriginalPriceUsd*troyOnceToGram).toFixed(2);
-
+     
      frstTimeSpace.innerHTML = `${syncingDate}`
      scndTimeSpace.innerHTML = `${syncingDate}`
-
+     
      console.log(goldOriginalPriceSar)
 })
 
@@ -537,6 +526,40 @@ let utc = localTimeNow.getTime() + (localTimeNow.getTimezoneOffset() * hourMS);
 
 // turns a timestamp to human readable date and time
 let est = new Date(utc + (dayMS*estOffset))
+
+
+
+
+
+
+// fetch data from database via the index page
+const monthDataAdress = document.querySelectorAll('.monthData')
+let monthDataPrice = []
+let monthDataLabel = []
+for(let i = 0; i < monthDataAdress.length; i++)
+{
+     monthDataPrice.push((parseFloat(monthDataAdress[i].children[1].innerHTML)*usdToSar).toFixed(2))
+     monthDataLabel.push(`${monthDataAdress[i].children[4].innerHTML} ${months[monthDataAdress[i].children[3].innerHTML-1]}`) 
+}
+
+const dayDataAdress = document.querySelectorAll('.dayData')
+let dayDataPrice = []
+let dayDataLabel = []
+for(let i = 0; i < dayDataAdress.length; i++)
+{
+     dayDataPrice.push(parseFloat(dayDataAdress[i].children[1].innerHTML).toFixed(2))
+     if (i > 0 && i < 13)
+     {
+          dayDataLabel.push(`${dayDataAdress[i].children[5].innerHTML} AM`)
+     }
+     else if ( i > 12 && i < 25)
+     {
+          dayDataLabel.push(`${parseInt(dayDataAdress[i].children[5].innerHTML)-12} PM`)
+     }
+}
+
+
+
 
 // check if it the time when the gold markets are closed then it changes the fourth card contant based on this decision
 if (langBox.checked == true){
@@ -595,13 +618,13 @@ let chart1 = new Chart(dayChart, {
      
      // here we place our data 
      data: {
-          labels: hours,
+          labels: dayDataLabel,
           datasets: [{
                label: frstChartTitle,
                backgroundColor: '#8C7161aa',
                borderColor: '#8C7161',
                color: '#0d0d0d',
-               data: [222.64, 222.3, 219.2, 219.19, 220.47, 227.24, 227, 227, 218, NaN, NaN, 234, 222],
+               data: dayDataPrice,
                
                pointRadius: 3.4,
                
@@ -619,8 +642,8 @@ let chart1 = new Chart(dayChart, {
           maintainAspectRatio: false,
           scales: {
                y: {
-                    suggestedMin: 218,
-                    suggestedMax: 234,
+                    suggestedMin: Math.round(Math.min(...dayDataPrice)),
+                    suggestedMax: Math.round(Math.max(...dayDataPrice)),
                     ticks: {
                          font: {
                               size: 12
@@ -655,13 +678,13 @@ let chart2 = new Chart(monthChart, {
      
      // here we place our data 
      data: {
-          labels: days,
+          labels: monthDataLabel,
           datasets: [{
                label: scndChartTitle,
                backgroundColor: '#8C7161aa',
                borderColor: '#8C7161',
                color: '#0d0d0d',
-               data: [222.64, 222.3, 219.2, 219.19, 220.47, 227.24, 227, 227, 218, NaN, 234, NaN, 222,227, 218, NaN, NaN, 234, 222,  222.3, 219.2, 219.19,227, 218, NaN, NaN, 234, 222, 220.47, 227.24, 227, 227, 218, NaN],
+               data: monthDataPrice,
                
                pointRadius: 3.4,
                
@@ -679,8 +702,8 @@ let chart2 = new Chart(monthChart, {
           maintainAspectRatio: false,
           scales: {
                y: {
-                    suggestedMin: 218,
-                    suggestedMax: 234,
+                    suggestedMin: Math.round(Math.min(...monthDataPrice)-1),
+                    suggestedMax: Math.round(Math.max(...monthDataPrice)+1),
                     ticks: {
                          font: {
                               size: 12
@@ -703,10 +726,6 @@ let chart2 = new Chart(monthChart, {
                
           },
           responsive: true,
-          plugins: {
-               suggestedMin: 10,
-               suggestedMax: 10
-          }
           
      }
 })

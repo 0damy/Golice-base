@@ -27,11 +27,12 @@ def myApiCall():
     url = 'https://api.metals.live/v1/spot'
     response = requests.get(url)
     response.raise_for_status()
+    troy_to_gram = 31.10348
     quote = float(response.json()[0]["gold"])
     #here i get the current time to use it when storing data in the db
     current_time = datetime.now(pytz.timezone('Asia/Riyadh'))
     # here is where i store the results in the data base
-    db.execute('INSERT INTO historical Values(null, ?, ?, ?, ?, ?)', quote, current_time.year, current_time.month, current_time.day, current_time.hour)
+    db.execute('INSERT INTO historical Values(null, ?, ?, ?, ?, ?)', quote/troy_to_gram, current_time.year, current_time.month, current_time.day, current_time.hour)
     # call myApi() again in 6000 seconds/1hour
     threading.Timer(6000, myApiCall).start()
 
@@ -53,7 +54,7 @@ myApiCall()
 @app.route('/')
 def index():
      # import from db and forward to html pages
-     month = db.execute('SELECT * FROM historical GROUP BY day ORDER BY id ASC LIMIT 30')
+     month = db.execute('SELECT * FROM historical WHERE hour = 21 ORDER BY id ASC LIMIT 30')
      currento = datetime.now(pytz.timezone('Asia/Riyadh'))
      day =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currento.day)
      return render_template('index.html', month=month, day=day)
@@ -63,4 +64,4 @@ def index():
 
 # @app.route('/info')
 #      def info():
-     
+
