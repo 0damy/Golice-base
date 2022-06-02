@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@swup/body-class-plugin": "^1.0.2"
+  }
+}

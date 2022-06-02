@@ -8,6 +8,9 @@ body{
      padding-bottom: 8rem;
      border-bottom: 1px solid #5f6673;
 }
+.row:nth-of-type(1){
+     margin-top: 4vh;
+}
 #home-sign{
      color:#8c7161;
      font-size: 3rem;
@@ -25,6 +28,8 @@ body{
 }
 .intro p{
      font-size: 1.8vw;
+     width: 85%;
+     margin-left: 5rem;
 }
 #gold-pic{
      width: 32vw;
@@ -38,11 +43,43 @@ body{
      font-size: 0.8rem;
      padding-top: 2vh;
 }
-#basic-p{
+.basic-p{
      padding-top: 3vh;
      font-size: 2vw;
+     font-family: 'Inknut Antiqua', 'Markazi Text';
 }
 
 .basic-bundle{
      width: 5vw;
 }
+
+#bootstrap-div div:nth-of-type(1) img{
+     width: 16vw;
+}
+.logo-desc{
+     color: #5f6673;
+}
+.source-btn{
+     color: #353940;
+}
+.source-btn a{
+     text-decoration: none;
+     font-size: 2.6vw;
+     color: #8c7161;
+}
+#arabiFont{
+     font-family: 'Markazi Text', 'Inknut Antiqua';
+}
+.font-test{
+     margin-top: 8vh;
+     margin-bottom: 2vh;
+     height: 10vh;
+     width: 60vw;
+     background-color: #353940;
+     border-color: #5f667328;
+     color: #f2f2f2;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+     color: #f2f2f2;
+}
+
