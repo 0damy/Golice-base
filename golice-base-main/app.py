@@ -1,19 +1,24 @@
 import os
 from urllib import response
 
-from cs50 import SQL
-from flask import Flask, redirect, render_template, request
 from datetime import datetime
 import threading
-import requests
 import pytz
+from cs50 import SQL
+import requests
 from sqlalchemy import null
+from flask import Flask, redirect, render_template, request
 
 # Configure application
 app = Flask(__name__)
 
+
+
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
+
+
+
 
 
 # Configure CS50 Library to use SQLite database
@@ -34,7 +39,7 @@ def myApiCall():
     # here is where i store the results in the data base
     db.execute('INSERT INTO historical Values(null, ?, ?, ?, ?, ?)', quote/troy_to_gram, current_time.year, current_time.month, current_time.day, current_time.hour)
     # call myApi() again in 6000 seconds/1hour
-    threading.Timer(6000, myApiCall).start()
+    threading.Timer(5999, myApiCall).start()
 
 myApiCall()
 
@@ -55,9 +60,9 @@ myApiCall()
 def index():
      # import from db and forward to html pages
      month = db.execute('SELECT * FROM historical WHERE hour = 21 ORDER BY id ASC LIMIT 30')
-     currento = datetime.now(pytz.timezone('Asia/Riyadh'))
-     day =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currento.day)
-     return render_template('index.html', month=month, day=day)
+     currentot = datetime.now(pytz.timezone('Asia/Riyadh'))
+     daay =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currentot.day)
+     return render_template('index.html', month=month, day=daay)
 
 @app.route("/about")
 def about():

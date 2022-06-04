@@ -83,3 +83,18 @@ body{
      color: #f2f2f2;
 }
 
+.attri a{
+     color: #8c7161;
+     font-size: 1.3rem;
+}
+.attri{
+     border-bottom: 0;
+}
+#initiality{
+     font-size: 1.4rem;
+}
+#initiality a{
+     color: #8c7161;
+     text-decoration: none;
+     font-size: 1.6rem;
+}
