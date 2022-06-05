@@ -548,13 +548,14 @@ let dayDataLabel = []
 for(let i = 0; i < dayDataAdress.length; i++)
 {
      dayDataPrice.push((parseFloat(dayDataAdress[i].children[1].innerHTML)*usdToSar).toFixed(2))
-     if (i >= 1 && i <= 12)
+     let dataHourVal = parseInt(dayDataAdress[i].children[5].innerHTML)
+     if (dataHourVal >= 1 && dataHourVal <= 12)
      {
-          dayDataLabel.push(`${dayDataAdress[i].children[5].innerHTML} AM`)
+          dayDataLabel.push(`${dataHourVal} AM`)
      }
-     else if ( i >= 13 && i <= 24)
+     else if ( dataHourVal >= 13 && dataHourVal <= 24)
      {
-          dayDataLabel.push(`${parseInt(dayDataAdress[i].children[5].innerHTML) - 12} PM`)
+          dayDataLabel.push(`${dataHourVal - 12} PM`)
      }
 }
 
@@ -563,7 +564,7 @@ for(let i = 0; i < dayDataAdress.length; i++)
 
 // check if it the time when the gold markets are closed then it changes the fourth card contant based on this decision
 if (langBox.checked === true){
-     if ((est.getDay() === 5 && est.getHours() > 17) || (est.getDay() === 6) || (est.getDay() === 0 && est.getHours() < 6)) {
+     if (est.getHours() > 17 || est.getDay() === 6 || est.getHours() < 6) {
           frthCardTitlePlace.innerHTML = textuals.en.frthCard.closeState.closeTitle
           marketState.style.color = offColor
           frthCardDiscriptPlace.innerHTML = textuals.en.frthCard.closeState.closeDiscription
@@ -575,7 +576,7 @@ if (langBox.checked === true){
      frthCardFooterPlace.style.textAlign = 'left'
      document.querySelector('.blockquote').style.textAlign = 'left'
 }else{
-     if ((est.getDay() === 5 && est.getHours() > 17) || est.getDay() === 6 || (est.getDay() === 7 && est.getHours() < 6)) {
+     if (est.getHours() > 17 || est.getDay() === 6 || est.getHours() < 6) {
           frthCardTitlePlace.innerHTML = textuals.ar.frthCard.closeState.closeTitle
           marketState.style.color = offColor
           frthCardDiscriptPlace.innerHTML = textuals.ar.frthCard.closeState.closeDiscription

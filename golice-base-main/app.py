@@ -39,7 +39,7 @@ def myApiCall():
     # here is where i store the results in the data base
     db.execute('INSERT INTO historical Values(null, ?, ?, ?, ?, ?)', quote/troy_to_gram, current_time.year, current_time.month, current_time.day, current_time.hour)
     # call myApi() again in 6000 seconds/1hour
-    threading.Timer(5999, myApiCall).start()
+    threading.Timer(6000.01, myApiCall).start()
 
 myApiCall()
 
@@ -69,6 +69,6 @@ def about():
      return render_template("about.html")
 
 
-# @app.route('/info')
-#      def info():
-
+@app.route("/info")
+def info():
+     return render_template("info.html")

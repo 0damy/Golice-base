@@ -98,3 +98,21 @@ body{
      text-decoration: none;
      font-size: 1.6rem;
 }
+#schedule-table{
+     width: 50%;
+     font-size: 1.8rem;
+     border-color: #8c7161;
+}
+@media only screen and (max-width: 501px) {
+     #schedule-table{
+          width: 90%;
+          font-size: 0.5rem;
+     }
+     main{
+          display: block;
+     }
+}
+
+.goldeno{
+     color: #8c7161;
+}
