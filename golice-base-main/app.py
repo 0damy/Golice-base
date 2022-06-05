@@ -59,7 +59,7 @@ myApiCall()
 @app.route('/')
 def index():
      # import from db and forward to html pages
-     month = db.execute('SELECT * FROM historical WHERE hour = 21 ORDER BY id ASC LIMIT 30')
+     month = db.execute('SELECT * FROM (SELECT * FROM historical WHERE hour = 21 ORDER BY id DESC LIMIT 30) GROUP BY day ORDER BY id ASC')
      currentot = datetime.now(pytz.timezone('Asia/Riyadh'))
      daay =  db.execute('SELECT * FROM historical WHERE day = ? ORDER BY id ASC', currentot.day)
      return render_template('index.html', month=month, day=daay)
