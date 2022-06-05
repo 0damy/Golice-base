@@ -100,7 +100,7 @@ const textuals = {
                     closeTitle: 'Markets are closed now',
                     closeDiscription: 'When markets are closed the price of gold remianes constant at the same price since last time markets were opened.'
                },
-               mainFooter: 'still interested? <a href="#" class="active"> learn more...</a>',
+               mainFooter: 'still interested? <a href="/info" class="active"> learn more...</a>',
                footerA: ' learn more...'
           },
           fifthCard: {
@@ -143,7 +143,7 @@ const textuals = {
                     closeTitle: 'اسواق الذهب مغلقة حالياَ',
                     closeDiscription: 'عندما تكون الاسواق مغلقة فإن السعر الذي تراه ثابت منذ آخر افتتاح'
                },
-               mainFooter: 'مهتم بالتفاصيل؟ <a href="#" class="active">تعلم المزيد من هنا</a>',
+               mainFooter: 'مهتم بالتفاصيل؟ <a href="/info" class="active">تعلم المزيد من هنا</a>',
                footerA: ''
           },
           fifthCard: {
